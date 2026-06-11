@@ -1,0 +1,28 @@
+#!/usr/bin/bash
+# ClipsNeko Linux dotfiles installation script.
+
+export DF_SRC=/usr/share/clipsneko-dotfiles
+echo "ClipsNeko Linux Hyprland dotfiles installation..."
+echo "This operation will override your current configs. Do you sure you want to continue?"
+read -p "Continue? (y/N) " -r confirm
+shopt -s nocasematch
+if [[ "$confirm" != "y" && "$confirm" != "yes" ]]; then
+    echo "Cancelled."
+    exit 1
+fi
+shopt -u nocasematch
+
+if [[ ! -d "$HOME/.config" ]]; then
+    mkdir $HOME/.config
+fi
+
+rm -rf $HOME/.config/hypr
+cp -r $DF_SRC/hypr $HOME/.config/
+rm -rf $HOME/.config/mako
+cp -r $DF_SRC/mako $HOME/.config/
+rm -rf $HOME/.config/kitty
+cp -r $DF_SRC/kitty $HOME/.config/
+rm -rf $HOME/.config/waybar
+cp -r $DF_SRC/waybar $HOME/.config/
+
+echo "Done."
