@@ -134,3 +134,14 @@ tooltip {
     color: #e6f2d6;
     margin-left: 4px;
 }
+
+#workspaces button:nth-child(1) {
+    background-image: url("/usr/share/pixmaps/clipsneko-logo.svg");
+    background-size: 80% 80%; 
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#workspaces button:nth-child(1) label {
+    opacity: 0;
+}

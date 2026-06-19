@@ -19,7 +19,8 @@
         "on-scroll-up": "hyprctl dispatch \"hl.dsp.focus({ workspace = 'e+1' })\"",
         "on-scroll-down": "hyprctl dispatch \"hl.dsp.focus({ workspace = 'e-1' })\"",
         "format-icons": {
-            "1": "\uf303",
+            // "1": "\uf303",
+            "1": "1",
             "2": "\uf120",
             "3": "\uf121",
             "4": "\uf484",
