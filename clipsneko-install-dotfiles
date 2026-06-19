@@ -2,15 +2,21 @@
 # ClipsNeko Linux dotfiles installation script.
 
 export DF_SRC=/usr/share/clipsneko-dotfiles
-echo "ClipsNeko Linux Hyprland dotfiles installation..."
-echo "This operation will override your current configs. Do you sure you want to continue?"
-read -p "Continue? (y/N) " -r confirm
-shopt -s nocasematch
-if [[ "$confirm" != "y" && "$confirm" != "yes" ]]; then
-    echo "Cancelled."
-    exit 1
+UNATTENDED=false
+if [[ "$1" == "-y" ]]; then
+    UNATTENDED=true
 fi
-shopt -u nocasematch
+echo "ClipsNeko Linux Hyprland dotfiles installation..."
+if [[ "$UNATTENDED" != true ]]; then
+    echo "This operation will override your current configs. Do you sure you want to continue?"
+    read -p "Continue? (y/N) " -r confirm
+    shopt -s nocasematch
+    if [[ "$confirm" != "y" && "$confirm" != "yes" ]]; then
+        echo "Cancelled."
+        exit 1
+    fi
+    shopt -u nocasematch
+fi
 
 if [[ ! -d "$HOME/.config" ]]; then
     mkdir $HOME/.config
