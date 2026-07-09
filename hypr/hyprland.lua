@@ -1,8 +1,8 @@
 -- Converted from hyprland.conf.
 
 -- Variables
-local proxySocks5 = "socks5://127.0.0.1:7890"
-local proxyHttp = "http://127.0.0.1:7890"
+-- local proxySocks5 = "socks5://127.0.0.1:7890"
+-- local proxyHttp = "http://127.0.0.1:7890"
 
 -- See https://wiki.hyprland.org/Configuring/Keywords/ for more
 local mainMod = "SUPER"
@@ -171,10 +171,6 @@ hl.window_rule({ match = { class = "org.gnome.Nautilus" }, float = true })
 --     size = {"monitor_w*0.75", "monitor_h*0.75"},
 -- })
 hl.window_rule({ match = { class = "qemu.*" }, float = true })
-hl.window_rule({
-    match = { class = "org.telegram.desktop", title = "Media viewer" },
-    float = true,
-})
 
 -- Function key bindings
 bindExec("XF86AudioMute", "pactl -- set-sink-mute @DEFAULT_SINK@ toggle")
@@ -190,7 +186,7 @@ bindExec(mainMod .. " + T", "kitty")
 bind(mainMod .. " + M", hl.dsp.exit())
 bindExec(mainMod .. " + E", "[float] nautilus --new-window")
 bind(mainMod .. " + V", hl.dsp.window.float())
-bindExec(mainMod .. " + R", "tofi-drun | xargs hyprctl dispatch exec -- ALL_PROXY=" .. proxySocks5)
+-- bindExec(mainMod .. " + R", "tofi-drun | xargs hyprctl dispatch exec -- ALL_PROXY=" .. proxySocks5)
 bind(mainMod .. " + P", hl.dsp.window.pseudo())
 bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))
 bind(mainMod .. " + F", hl.dsp.window.fullscreen())
@@ -210,11 +206,7 @@ bindExec(mainMod .. " + SHIFT + W", [[grim -g "$(hyprctl -j activewindow | jq -r
 bindExec("Print", "grim - | wl-copy")
 
 -- Open applications
-bindExec(mainMod .. " + SHIFT + P", "/opt/sparkle/sparkle --enable-features=UseOzonePlatform --ozone-platform=wayland")
 bindExec(mainMod .. " + SHIFT + B", "firefox")
-bindExec(mainMod .. " + SHIFT + Q", "linuxqq --enable-features=UseOzonePlatform --ozone-platform=wayland --enable-wayland-ime")
-bindExec(mainMod .. " + SHIFT + T", "Telegram")
-bindExec(mainMod .. " + SHIFT + C", "code --ozone-platform=wayland --enable-wayland-ime")
 
 -- Move focus with mainMod + arrow keys
 bind(mainMod .. " + left", hl.dsp.focus({ direction = "left" }))
@@ -294,13 +286,13 @@ hl.env("WLR_NO_HARDWARE_CURSORS", "1")
 hl.env("QT_QPA_PLATFORMTHEME", "qt5ct")
 
 -- Proxy, configure it properly for your application
-hl.env("ALL_PROXY", proxySocks5)
-hl.env("HTTP_PROXY", proxyHttp)
-hl.env("HTTPS_PROXY", proxyHttp)
-hl.env("all_proxy", proxySocks5)
-hl.env("http_proxy", proxyHttp)
-hl.env("https_proxy", proxyHttp)
-hl.env("NO_PROXY", "127.0.0.0/8,10.0.0.0/8,172.16.0.0/12,192.168.0.0/16")
+-- hl.env("ALL_PROXY", proxySocks5)
+-- hl.env("HTTP_PROXY", proxyHttp)
+-- hl.env("HTTPS_PROXY", proxyHttp)
+-- hl.env("all_proxy", proxySocks5)
+-- hl.env("http_proxy", proxyHttp)
+-- hl.env("https_proxy", proxyHttp)
+-- hl.env("NO_PROXY", "127.0.0.0/8,10.0.0.0/8,172.16.0.0/12,192.168.0.0/16")
 
 -- Auto start
 hl.on("hyprland.start", function()
