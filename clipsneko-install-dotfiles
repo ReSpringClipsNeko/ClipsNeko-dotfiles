@@ -30,5 +30,6 @@ rm -rf $HOME/.config/kitty
 cp -r $DF_SRC/kitty $HOME/.config/
 rm -rf $HOME/.config/waybar
 cp -r $DF_SRC/waybar $HOME/.config/
+cp $DF_SRC/zshrc/.zshrc $HOME/
 
 echo "Done."
