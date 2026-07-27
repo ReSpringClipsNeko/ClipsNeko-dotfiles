@@ -28,7 +28,7 @@ end
 
 hl.monitor({
     output = "",
-    mode = "3840x2160@160",
+    mode = "highrr",
     position = "auto",
     scale = "2",
 })
